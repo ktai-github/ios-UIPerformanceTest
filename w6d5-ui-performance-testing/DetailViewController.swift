@@ -38,7 +38,10 @@ extension DetailViewController {
     private func configureView() {
         // Update the user interface for the detail item.
         if let detailItem = detailItem, let label = detailDescriptionLabel, let mealName = detailItem.name {
-            label.text = "\(mealName) - \(detailItem.calories)"
+          let text = "\(mealName) - \(detailItem.calories)"
+          label.text = text
+          label.accessibilityLabel = text
+//          label.accessibilityValue = text
         }
     }
 }

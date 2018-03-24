@@ -45,7 +45,16 @@ class w6d5_ui_performance_testingUITests: XCTestCase {
   }
   
   func testShowMealDetail() {
+//    let detailElement: XCUIElement = app.staticTexts["detailViewControllerLabel"]
+//    let labelElement = app.staticTexts["detailViewControllerLabel"]
+    XCUIApplication().tables.children(matching: .cell).element(boundBy: 0).staticTexts["Burger - 300"].tap()
+
+    let labelElement = app.staticTexts.element(matching: .any, identifier: "detailViewControllerLabel")
+
+
+    XCTAssertEqual(labelElement.label, "Burger - 300")
     
+    app.navigationBars["Detail"].buttons["Master"].tap()
   }
   
   func addNewMeal(mealName: String, numberOfCalories: Int) {
